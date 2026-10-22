@@ -1,0 +1,51 @@
+/*
+ * PocketBase's stylesheets, verbatim, in PocketBase's own import order
+ * (ui/src/css/_main.css). Do not hand-edit these files — to pull an upstream
+ * change, re-copy from the PocketBase checkout so they stay diffable.
+ *
+ * Dropped from the upstream list: prism.css (no syntax highlighting here) and
+ * everything after _main.css's divider, which styles PocketBase's own screens
+ * (collections, logs, ERD, rule fields) that gocommerce has no equivalent of.
+ *
+ * And accordion.css, which is a third kind of drop: the file is upstream's and
+ * unchanged, but nothing here can ever match it. Its only selectors are
+ * `.accordion` and the `summary` inside one, and this panel writes its own
+ * disclosures — the variant matrix and the category picker both expand rows of
+ * a <table>, which a <details>-based accordion cannot wrap. That was 163 lines
+ * in every visitor's bundle with nothing to apply them to. The file itself
+ * stays in lib/styles so a re-copy from upstream still diffs cleanly; only the
+ * import is gone.
+ *
+ * gocommerce.css is the only file we author, and only for screens PocketBase
+ * has no counterpart to.
+ */
+@import "./lib/styles/fonts.css";
+@import "./lib/styles/fonts-inter.css";
+@import "./lib/remixicon.css";
+@import "./lib/styles/vars.css";
+@import "./lib/styles/animations.css";
+@import "./lib/styles/base.css";
+@import "./lib/styles/tooltip.css";
+@import "./lib/styles/toast.css";
+@import "./lib/styles/list.css";
+@import "./lib/styles/grid.css";
+@import "./lib/styles/table.css";
+@import "./lib/styles/form.css";
+@import "./lib/styles/dropdown.css";
+@import "./lib/styles/bulkbar.css";
+@import "./lib/styles/tabs.css";
+@import "./lib/styles/modal.css";
+@import "./lib/styles/layout.css";
+
+@import "./lib/styles/gocommerce.css";
+
+/* Before design.css on purpose — see the file for why the cascade needs it
+   here rather than inside it. */
+@import "./lib/styles/tw-border-default.css";
+
+/*
+ * DESIGN.md, last so its tokens win where the two overlap. It brings Tailwind
+ * without Preflight, so the sheets above still own every screen that has not
+ * been migrated yet.
+ */
+@import "./lib/styles/design.css";
