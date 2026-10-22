@@ -5,8 +5,17 @@
 	import '../app.css';
 </script>
 
-<svelte:head></svelte:head>
+<svelte:head>
+    <title>GoCommerce</title>
+</svelte:head>
 
+
+
+<main class="app">
+
+	<svelte:boundary>
+	
 {@render children()}
 
-<main class=""></main>
+	</svelte:boundary>
+</main>
